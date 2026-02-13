@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ValentinePage from "./pages/ValentinePage";
 import TulipAnimation from "./pages/TulipAnimation";
-import AnniversaryPage from "./AnniversaryPage";
+import AnniversaryPage from "./pages/AnniversaryPage";
 
 export default function App() {
   const [stage, setStage] = useState("valentine");
