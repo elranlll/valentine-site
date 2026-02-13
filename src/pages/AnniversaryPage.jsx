@@ -70,129 +70,201 @@ export default function AnniversaryPage() {
   }, []);
 
   return (
-    <div style={styles.wrapper}>
-      {/* Hero Section - Layer 1 (Front) */}
-      <section ref={heroRef} style={styles.hero}>
-        <h1 style={styles.heroTitle}>Happy Anniversary ❤️</h1>
-        <p style={styles.heroText}>
-          Thank you for loving me and being part of my life.<br />
-          Every moment with you is my favorite memory.
-        </p>
-        {/* String segment from hero */}
-        <svg style={styles.curvedString} viewBox="0 0 200 400" preserveAspectRatio="none">
-          <path
-            d="M 100 0 Q 150 100, 100 200 Q 50 300, 100 400"
-            stroke="url(#redGradient)"
-            strokeWidth="4"
-            fill="none"
-            filter="url(#glow)"
-          />
-          <defs>
-            <linearGradient id="redGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#ff1744" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#ff1744" stopOpacity="1" />
-              <stop offset="100%" stopColor="#ff1744" stopOpacity="0.3" />
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-              <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-        </svg>
-      </section>
+    <>
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-title {
+            font-size: 3rem !important;
+          }
+          .hero-text {
+            font-size: 1.3rem !important;
+            padding: 0 20px;
+          }
+          .section-title {
+            font-size: 2rem !important;
+          }
+          .section-text {
+            font-size: 1.1rem !important;
+          }
+          .text-block {
+            padding: 30px !important;
+          }
+          .photo-frame {
+            padding: 15px !important;
+          }
+          .photo {
+            max-width: 100% !important;
+          }
+          .content {
+            gap: 40px !important;
+          }
+          .footer-text {
+            font-size: 1.8rem !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .hero-title {
+            font-size: 2.5rem !important;
+            margin-bottom: 20px !important;
+          }
+          .hero-text {
+            font-size: 1.1rem !important;
+            line-height: 1.6 !important;
+          }
+          .section-title {
+            font-size: 1.6rem !important;
+            margin-bottom: 15px !important;
+          }
+          .section-text {
+            font-size: 1rem !important;
+            line-height: 1.6 !important;
+          }
+          .text-block {
+            padding: 25px !important;
+          }
+          .photo-frame {
+            padding: 10px !important;
+          }
+          .content {
+            gap: 30px !important;
+          }
+          .section {
+            padding: 60px 15px !important;
+          }
+          .footer-text {
+            font-size: 1.5rem !important;
+          }
+          .curved-string {
+            width: 150px !important;
+          }
+        }
+      `}</style>
+      
+      <div style={styles.wrapper}>
+        {/* Hero Section - Layer 1 (Front) */}
+        <section ref={heroRef} style={styles.hero}>
+          <h1 className="hero-title" style={styles.heroTitle}>Happy Anniversary ❤️</h1>
+          <p className="hero-text" style={styles.heroText}>
+            Thank you for loving me and being part of my life.<br />
+            Every moment with you is my favorite memory.
+          </p>
+          {/* String segment from hero */}
+          <svg className="curved-string" style={styles.curvedString} viewBox="0 0 200 400" preserveAspectRatio="none">
+            <path
+              d="M 100 0 Q 150 100, 100 200 Q 50 300, 100 400"
+              stroke="url(#redGradient)"
+              strokeWidth="4"
+              fill="none"
+              filter="url(#glow)"
+            />
+            <defs>
+              <linearGradient id="redGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#ff1744" stopOpacity="0.3" />
+                <stop offset="50%" stopColor="#ff1744" stopOpacity="1" />
+                <stop offset="100%" stopColor="#ff1744" stopOpacity="0.3" />
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+          </svg>
+        </section>
 
-      {/* Section 1 - Layer 2 (Photo Right, Text Left) */}
-      <section ref={section1Ref} style={styles.section}>
-        <div style={styles.content}>
-          <div style={styles.textBlock}>
-            <h2 style={styles.sectionTitle}>What makes my heart beat faster</h2>
-            <p style={styles.sectionText}>
-              That smile of yours captured my heart
-              instantly. I knew from that moment that you were special.
-            </p>
-          </div>
-          <div style={styles.photoBlock}>
-            <div style={styles.photoFrame}>
-             <img src={new URL('/photo1.jpg', import.meta.url).href} style={styles.photo} alt="Memory 1" />
+        {/* Section 1 - Layer 2 (Photo Right, Text Left) */}
+        <section ref={section1Ref} className="section" style={styles.section}>
+          <div className="content" style={styles.content}>
+            <div className="text-block" style={styles.textBlock}>
+              <h2 className="section-title" style={styles.sectionTitle}>What makes my heart beat faster</h2>
+              <p className="section-text" style={styles.sectionText}>
+                That smile of yours captured my heart
+                instantly. I knew from that moment that you were special.
+              </p>
+            </div>
+            <div style={styles.photoBlock}>
+              <div className="photo-frame" style={styles.photoFrame}>
+                <img src="/photo1.jpg" className="photo" style={styles.photo} alt="Memory 1" />
+              </div>
             </div>
           </div>
-        </div>
-        {/* String segment from section 1 */}
-        <svg style={styles.curvedString} viewBox="0 0 200 400" preserveAspectRatio="none">
-          <path
-            d="M 100 0 Q 50 100, 100 200 Q 150 300, 100 400"
-            stroke="url(#redGradient)"
-            strokeWidth="4"
-            fill="none"
-            filter="url(#glow)"
-          />
-        </svg>
-      </section>
+          {/* String segment from section 1 */}
+          <svg className="curved-string" style={styles.curvedString} viewBox="0 0 200 400" preserveAspectRatio="none">
+            <path
+              d="M 100 0 Q 50 100, 100 200 Q 150 300, 100 400"
+              stroke="url(#redGradient)"
+              strokeWidth="4"
+              fill="none"
+              filter="url(#glow)"
+            />
+          </svg>
+        </section>
 
-      {/* Section 2 - Layer 3 (Photo Left, Text Right) */}
-      <section ref={section2Ref} style={styles.section}>
-        <div style={styles.content}>
-          <div style={styles.photoBlock}>
-            <div style={styles.photoFrame}>
-             <img src={new URL('/photo2.jpg', import.meta.url).href} style={styles.photo} alt="Memory 2" />
+        {/* Section 2 - Layer 3 (Photo Left, Text Right) */}
+        <section ref={section2Ref} className="section" style={styles.section}>
+          <div className="content" style={styles.content}>
+            <div style={styles.photoBlock}>
+              <div className="photo-frame" style={styles.photoFrame}>
+                <img src="/photo2.jpg" className="photo" style={styles.photo} alt="Memory 2" />
+              </div>
+            </div>
+            <div className="text-block" style={styles.textBlock}>
+              <h2 className="section-title" style={styles.sectionTitle}>Growing Together</h2>
+              <p className="section-text" style={styles.sectionText}>
+                Every challenge we've faced has made us stronger. Every laugh we've
+                shared has made life brighter. You are my partner in everything.
+              </p>
             </div>
           </div>
-          <div style={styles.textBlock}>
-            <h2 style={styles.sectionTitle}>Growing Together</h2>
-            <p style={styles.sectionText}>
-              Every challenge we've faced has made us stronger. Every laugh we've
-              shared has made life brighter. You are my partner in everything.
-            </p>
-          </div>
-        </div>
-        {/* String segment from section 2 */}
-        <svg style={styles.curvedString} viewBox="0 0 200 400" preserveAspectRatio="none">
-          <path
-            d="M 100 0 Q 140 100, 100 200 Q 60 300, 100 400"
-            stroke="url(#redGradient)"
-            strokeWidth="4"
-            fill="none"
-            filter="url(#glow)"
-          />
-        </svg>
-      </section>
+          {/* String segment from section 2 */}
+          <svg className="curved-string" style={styles.curvedString} viewBox="0 0 200 400" preserveAspectRatio="none">
+            <path
+              d="M 100 0 Q 140 100, 100 200 Q 60 300, 100 400"
+              stroke="url(#redGradient)"
+              strokeWidth="4"
+              fill="none"
+              filter="url(#glow)"
+            />
+          </svg>
+        </section>
 
-      {/* Section 3 - Layer 4 (Photo Right, Text Left) */}
-      <section ref={section3Ref} style={styles.section}>
-        <div style={styles.content}>
-          <div style={styles.textBlock}>
-            <h2 style={styles.sectionTitle}>Forever & Always</h2>
-            <p style={styles.sectionText}>
-              Here's to all the memories we've made and all the adventures still
-              to come. I love you more with each passing day. Happy Anniversary!
-            </p>
-          </div>
-          <div style={styles.photoBlock}>
-            <div style={styles.photoFrame}>
-              <img src={new URL('/photo3.jpg', import.meta.url).href} style={styles.photo} alt="Memory 3" />
+        {/* Section 3 - Layer 4 (Photo Right, Text Left) */}
+        <section ref={section3Ref} className="section" style={styles.section}>
+          <div className="content" style={styles.content}>
+            <div className="text-block" style={styles.textBlock}>
+              <h2 className="section-title" style={styles.sectionTitle}>Forever & Always</h2>
+              <p className="section-text" style={styles.sectionText}>
+                Here's to all the memories we've made and all the adventures still
+                to come. I love you more with each passing day. Happy Anniversary!
+              </p>
+            </div>
+            <div style={styles.photoBlock}>
+              <div className="photo-frame" style={styles.photoFrame}>
+                <img src="/photo3.jpg" className="photo" style={styles.photo} alt="Memory 3" />
+              </div>
             </div>
           </div>
-        </div>
-        {/* String segment from section 3 */}
-        <svg style={styles.curvedString} viewBox="0 0 200 400" preserveAspectRatio="none">
-          <path
-            d="M 100 0 Q 70 100, 100 200 Q 130 300, 100 400"
-            stroke="url(#redGradient)"
-            strokeWidth="4"
-            fill="none"
-            filter="url(#glow)"
-          />
-        </svg>
-      </section>
+          {/* String segment from section 3 */}
+          <svg className="curved-string" style={styles.curvedString} viewBox="0 0 200 400" preserveAspectRatio="none">
+            <path
+              d="M 100 0 Q 70 100, 100 200 Q 130 300, 100 400"
+              stroke="url(#redGradient)"
+              strokeWidth="4"
+              fill="none"
+              filter="url(#glow)"
+            />
+          </svg>
+        </section>
 
-      {/* Footer */}
-      <section style={styles.footer}>
-        <p style={styles.footerText}>With all my love ❤️</p>
-      </section>
-    </div>
+        {/* Footer */}
+        <section style={styles.footer}>
+          <p className="footer-text" style={styles.footerText}>With all my love ❤️</p>
+        </section>
+      </div>
+    </>
   );
 }
 
