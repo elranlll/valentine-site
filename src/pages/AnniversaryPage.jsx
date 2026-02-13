@@ -187,7 +187,7 @@ export default function AnniversaryPage() {
             </div>
             <div style={styles.photoBlock}>
               <div className="photo-frame" style={styles.photoFrame}>
-                <img src="/photo1.jpg" className="photo" style={styles.photo} alt="Memory 1" />
+              <img src={new URL('/photo1.jpg', import.meta.url).href} style={styles.photo} alt="Memory 1" />
               </div>
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function AnniversaryPage() {
           <div className="content" style={styles.content}>
             <div style={styles.photoBlock}>
               <div className="photo-frame" style={styles.photoFrame}>
-                <img src="/photo2.jpg" className="photo" style={styles.photo} alt="Memory 2" />
+                <img src={new URL('/photo2.jpg', import.meta.url).href} className="photo" style={styles.photo} alt="Memory 2" />
               </div>
             </div>
             <div className="text-block" style={styles.textBlock}>
@@ -243,7 +243,7 @@ export default function AnniversaryPage() {
             </div>
             <div style={styles.photoBlock}>
               <div className="photo-frame" style={styles.photoFrame}>
-                <img src="/photo3.jpg" className="photo" style={styles.photo} alt="Memory 3" />
+                <img src={new URL('/photo3.jpg', import.meta.url).href} className="photo" style={styles.photo} alt="Memory 3" />
               </div>
             </div>
           </div>
